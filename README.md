@@ -81,7 +81,8 @@
       <div class="field-error" th:errors="*{itemName}"> 오류메시지 </div>
       ```
 
-    - ![image-20220409230824820](/Users/geumbit/Library/Application Support/typora-user-images/image-20220409230824820.png)
+    - <img width="564" alt="image-20220409230824820" src="https://user-images.githubusercontent.com/58017318/162613095-9b8a753a-29df-40e2-a623-fb45e19700ad.png">
+
 
   - 주의) 
 
@@ -213,7 +214,8 @@ bindingResult.rejectValue("price", "range", new Object[]{1000, 1000000}, null);
 
 이제는 숫자입력폼에 문자입력 시 뱉는 에러를 문구를 만들어보자
 
-![image-20220410112818873](/Users/geumbit/Library/Application Support/typora-user-images/image-20220410112818873.png)
+<img width="552" alt="image-20220410112818873" src="https://user-images.githubusercontent.com/58017318/162613167-44758f0c-8ba8-4561-81d3-55e6e0ed6bd4.png">
+
 
 다음과 같이 숫자부분에 String을 입력하면 다음과 같은 오류를 뱉어내고,<br>bindingResult를 찍어보면 아래와 같이 표시된다.
 
@@ -240,5 +242,4 @@ typeMismatch=타입 오류입니다.
 ```
 
 
-
-![image-20220410113329049](/Users/geumbit/Library/Application Support/typora-user-images/image-20220410113329049.png)
+<img width="550" alt="image-20220410113329049" src="https://user-images.githubusercontent.com/58017318/162613201-46d93241-e168-4f4c-a29e-8a651b8cd066.png">

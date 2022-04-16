@@ -243,3 +243,6 @@ typeMismatch=타입 오류입니다.
 
 
 <img width="550" alt="image-20220410113329049" src="https://user-images.githubusercontent.com/58017318/162613201-46d93241-e168-4f4c-a29e-8a651b8cd066.png">
+
+----------
+<img width="1692" alt="image-20220416121759322" src="https://user-images.githubusercontent.com/58017318/163660188-f7b88101-7103-4025-a7dd-9afa5f355caf.png">

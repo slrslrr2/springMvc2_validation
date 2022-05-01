@@ -246,3 +246,63 @@ typeMismatch=타입 오류입니다.
 
 ----------
 <img width="1692" alt="image-20220416121759322" src="https://user-images.githubusercontent.com/58017318/163660188-f7b88101-7103-4025-a7dd-9afa5f355caf.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+
+
+
+- 생각해보면 null, 금액range등으로 이를 어노테이션을 통해 체크할 생각을 함
+
+- Build.gradle 아래 내용을 정의함으로써 <br>어노테이션에 대한 인터페이스와 구현체가 정의된 라이브러리를 다운받는다.
+
+  ```java
+  implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+  // Jakarta Bean Validation
+  // jakarta.validation-api : Bean Validation 인터페이스 
+  // hibernate-validator 구현체
+  ```
+
+
+
+위 라이브러리를 추가함으로써 @Validated를 선언하고 <br>Validation을 체크해주는 @NotNull, @NotBlank등을 사용할 수 있다.
+
+<img width="1728" alt="image-20220416190116827" src="https://user-images.githubusercontent.com/58017318/166146710-bae9e92b-f6eb-4e95-b3cb-fd8d76668b8f.png">
+
+<br><br><br>
+
+@ModelAttribute뿐만아니라 @RequestBody으로도 Validated를 체크할 수 있다.<br>차이점은 아래와 같다.
+
+
+
+<img width="1656" alt="image-20220416191541417" src="https://user-images.githubusercontent.com/58017318/166146714-55928637-7f3a-4076-a970-a36346a4ddac.png">
+
+```java
+@ModelAttribute vs @RequestBody
+HTTP 요청 파리미터를 처리하는 @ModelAttribute 는 각각의 필드 단위로 세밀하게 적용된다. 
+그래서 특정 필드에 타입이 맞지 않는 오류가 발생해도 나머지 필드는 정상 처리할 수 있었다. 
+HttpMessageConverter 는 @ModelAttribute 와 다르게 각각의 필드 단위로 적용되는 것이 아니라, 전체 객체 단위로 적용된다.
+따라서 메시지 컨버터의 작동이 성공해서 Item 객체를 만들어야 @Valid , @Validated 가 적용된다.
+  
+@ModelAttribute 는 필드 단위로 정교하게 바인딩이 적용된다. 
+  특정 필드가 바인딩 되지 않아도 나머지 필드는 정상 바인딩 되고, Validator를 사용한 검증도 적용할 수 있다.
+  
+@RequestBody 는 HttpMessageConverter 단계에서 JSON 데이터를 객체로 변경하지 못하면 (price에 문자열을 넣는다 라던지)
+  이후 단계 자체가 진행되지 않고 예외가 발생한다. 컨트롤러도 호출되지 않고, Validator도 적용할 수 없다.
+```
+
